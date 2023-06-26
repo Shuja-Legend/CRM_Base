@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Include Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <!-- Include Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Include custom font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Sassy Frass' rel='stylesheet'>
+
+  <!-- Custom CSS styles -->
+  <style>
+    /* CSS styles for various elements */
+
+    .custom-font {
+      font-family: 'PT Sans', sans-serif;
+    }
+
+    .topbar {
+      /* background-color: #22B0FA; */
+      padding-right: 1%;
+      padding-top: 1%;
+      padding-bottom: 1%;
+    }
+
+    .topbar .btn {
+      color: #fff;
+    }
+
+    .dashboard {
+      background-color: #edf1f6;
+    }
+
+    .area-content {
+      background-color: #f5f6f8;
+      padding: 2%;
+    }
+
+    .sidebar {
+      background-color: #edf1f6;
+      padding-top: 1%;
+      min-height: 100vh;
+      width: 23%;
+      overflow-y: auto;
+    }
+
+    /* Hide the default scrollbar */
+    ::-webkit-scrollbar {
+      width: 4px;
+      background-color: #f5f5f5;
+    }
+
+    /* Scrollbar track */
+    ::-webkit-scrollbar-track {
+      background: #f5f5f5;
+    }
+
+    /* Scrollbar handle */
+    ::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+      border-radius: 4px;
+    }
+
+    /* Scrollbar handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #a8a8a8;
+    }
+
+    .sidebar .nav-link {
+      color: #717172;
+      font-weight: 500;
+      margin-top: 4%;
+    }
+
+    .sidebar .nav-link i {
+      margin-right: 12px;
+    }
+
+    .sidebar .nav-link:hover {
+      background-color: #e9ecef;
+    }
+
+    .sidebar .nav-link.active {
+      background-color: #ffffff;
+      color: #22B0FA;
+      border-right: 5px solid #22B0FA !important;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .navbar-brand {
+      font-family: 'Sassy Frass';
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 70%;
+      margin-top: 2%;
+      margin-bottom: 2%;
+      border: 2px solid red;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+</head>
+
+<body class="custom-font">
+
+  <!-- Top navigation bar -->
+  <nav class="navbar navbar-dark topbar">
+    <div class="container-fluid">
+      <!-- <a class="navbar-brand" href="#">Logo here</a> -->
+      <span> <img src="/static/images/2022-05-18 KO Logo (Watermarked) (1).png" alt=""
+        class="" style="width: 150px;"></span>
+      <div>
+        <!-- Logout button -->
+        <a type="button" class="btn btn-outline-primary me-2 text-dark" href="{% url 'logout' %}">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid p-0">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-lg-3 col-md-3 col-12 sidebar">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#dashboard" data-bs-toggle="pill">
+              <i class="fa-solid fa-gauge-high"></i> Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#crm-leads" data-bs-toggle="pill">
+              <i class="fa-solid fa-people-arrows"></i> Leads
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Main content area -->
+      <div class="col-lg-9 col-md-9 col-12 area-content">
+        <div class="tab-content">
+          <!-- Dashboard content -->
+          <div class="tab-pane fade show active" id="dashboard">
+            <h1>Dashboard Content</h1>
+            <p>Welcome to the dashboard! This is the main dashboard page.</p>
+          </div>
+
+          <!-- CRM leads content -->
+          <div class="tab-pane fade" id="crm-leads">
+            <h1>Leads Content</h1>
+            <p>This page displays information about your leads.</p>
+
+            <div>
+              <!-- Table for displaying leads -->
+              <table>
+                <tr style="background-color: beige;">
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th colspan="">Created_On</th>
+                </tr>
+
+                <!-- Loop over 'leads' and display lead information in table rows -->
+                {% for lead in leads %}
+                <tr>
+                  <td>{{ lead.id }} </td>
+                  <td>{{ lead.name }}</td>
+                  <td>{{ lead.email }}</td>
+                  <td>{{ lead.phone }}</td>
+                  <td>{{ lead.created_at }}</td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Include Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

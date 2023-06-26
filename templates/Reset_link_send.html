@@ -1,0 +1,71 @@
+<!doctype html>
+{% load static %}
+<!-- Load the static files template tags -->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Password Reset Success</title>
+    <!-- HTML document title -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- Bootstrap CSS library -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Font Awesome CSS library -->
+
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <!-- Importing custom font from Google Fonts -->
+</head>
+
+<style>
+    /* CSS styles for various elements */
+
+    .custom-font {
+        font-family: 'PT Sans', sans-serif;
+    }
+</style>
+
+<body style="background: transparent;">
+    <!-- Body with transparent background -->
+
+    <div class="container my-auto">
+        <div class="row my-auto">
+            <div class="col-lg-5 col-md-5 col-12 mx-auto my-auto my-5 py-4">
+                <!-- Form container -->
+
+                <div class="alert alert-success custom-font" role="alert">
+                    <!-- Success message alert -->
+
+                    We’ve emailed you instructions for setting your password. You should receive them shortly.
+                    <!-- Success message content -->
+
+                    <br>
+
+                    If you don’t receive an email, please make sure you’ve entered the address you registered with,
+                    and check your spam folder.
+                    <!-- Additional information -->
+
+                    <div class="text-center">
+                        <!-- Center-aligned text -->
+
+                        <small>Back to home ?
+                            <!-- Small text -->
+
+                            <a href="{% url 'index' %}" class="" style="color: gray;">Home</a>
+                            <!-- Link to the 'dashboard' URL with custom styles -->
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<!-- End of the HTML code -->
