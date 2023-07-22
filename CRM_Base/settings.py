@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-f3gvod3xqp@_386ruxyf0!d$e@4c_l-j)92_c8^wunpqg=m91g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['klugopps.com','*']
+ALLOWED_HOSTS = ['klugopps.com','*','35.246.63.232']
 
 
 # Application definition
@@ -135,8 +135,7 @@ EMAIL_HOST_USER = 'admin@leadhunter.app'
 EMAIL_HOST_PASSWORD = 'Leads1234!'
 EMAIL_USE_TLS = True
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "static_media")
+STATIC_URL = '/static/'
+# STATIC_ROOT = '/static/'
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)

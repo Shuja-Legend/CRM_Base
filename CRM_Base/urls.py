@@ -25,7 +25,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),  # URL pattern for the admin site
     path('',index, name='index'), 
-    path('dashboard',dashboard, name='dashboard'),  # URL pattern for the dashboard page
+    path('dashboard/',dashboard, name='dashboard'),  # URL pattern for the dashboard page
     path('login/',login_user, name='login'),  # URL pattern for the user login page
     path('logout/',log_out, name='logout'),  # URL pattern for the user logout page
 
@@ -34,6 +34,7 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/', CustomPasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('reset/done/', login_user, name='password_reset_complete'),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
+# + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
