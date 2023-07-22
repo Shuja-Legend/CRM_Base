@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-f3gvod3xqp@_386ruxyf0!d$e@4c_l-j)92_c8^wunpqg=m91g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['klugopps.com','*','35.246.63.232']
+ALLOWED_HOSTS = ['klugopps.com','www.klugopps.com','*','35.246.63.232']
 
 
 # Application definition
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'CRM_Base.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,11 +131,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'business91.web-hosting.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'admin@leadhunter.app'
-EMAIL_HOST_PASSWORD = 'Leads1234!'
+EMAIL_HOST_USER = 'your smtp email'
+EMAIL_HOST_PASSWORD = 'your password'
 EMAIL_USE_TLS = True
 
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = '/static/'
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+STATIC_ROOT = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
